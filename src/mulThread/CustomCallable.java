@@ -13,7 +13,7 @@ public class CustomCallable implements Callable<String> {
 
     //实现call()方法, 该call()方法将作为线程执行体, 并且有返回值
     @Override
-    public String call() throws Exception {
+    public String call() {
         for (int i = 0; i < 10; i++) {
             System.out.println("实现Callable接口" + i);
         }
