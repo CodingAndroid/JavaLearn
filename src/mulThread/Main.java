@@ -1,6 +1,8 @@
 package mulThread;
 
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 
 /**
@@ -53,29 +55,36 @@ public class Main {
 
     public static void main(String[] args) {
 
-        /*方式一*/
-        CustomThread thread = new CustomThread();
-        System.out.println("线程状态:" + thread.getState());
+        /*获取当前线程对象*/
+        System.out.println(Thread.currentThread());
+
+        /*方式一 继承Thread类*/
+        CustomThread customThread = new CustomThread();
+        customThread.setName("线程名");
+        customThread.start();
+
+        /*方式二 实现Runnable接口*/
+        CustomRunnable customRunnable = new CustomRunnable();
+        Thread thread = new Thread(customRunnable);
         thread.start();
 
-        //方式二
-        CustomRunnable runnable = new CustomRunnable();
-        Thread t1 = new Thread(runnable, "1号窗口");
-        t1.start();
-        Thread t2 = new Thread(runnable, "2号窗口");
-        t2.start();
-        Thread t3 = new Thread(runnable, "3号窗口");
-        t3.start();
-        //方式三
-        CustomCallable callable = new CustomCallable(); //创建Callable接口的实现类
-        FutureTask<String> task = new FutureTask<String>(callable);//创建Callable实现类的实例，使用FutureTask类来包装Callable对象，该FutureTask对象封装了该Callable对象的call()方法的返回值。
-        Thread thread1 = new Thread(task);//使用FutureTask对象作为Thread对象的target创建并启动新线程
-        thread1.start();
+        /*方式三 实现Callable接口*/
+        CustomCallable customCallable = new CustomCallable();
+        FutureTask<String> futureTask = new FutureTask<>(customCallable);
+        Thread t = new Thread(futureTask);
+        t.start();
         try {
-            System.out.println(task.get()); //调用FutureTask对象的get()方法来获得子线程执行结束后的返回值
-        } catch (InterruptedException | ExecutionException e) {
+            System.out.println(futureTask.get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
             e.printStackTrace();
         }
+
+        /*方式四 线程池*/
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        executorService.submit(customRunnable);
+        executorService.shutdown();
 
         Thread[] threads = new Thread[5];
         for (int i = 0; i < threads.length; i++){
@@ -86,8 +95,8 @@ public class Main {
             }, "thread-" + index);
         }
 
-        for (Thread t : threads){
-            t.start();
+        for (Thread tt : threads){
+            tt.start();
         }
     }
 }

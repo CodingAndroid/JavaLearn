@@ -10,8 +10,18 @@ package base;
 public class Test {
     public static void main(String[] args) {
 
-
-
+        int a = 1;
+        int b = 2;
+        int sum = a + b;
+        System.out.println(sum + "");
+        String string = "孟凡宇";
     }
 
+}
+
+class Person{
+
+    String name;
+    int age;
+    String address;
 }

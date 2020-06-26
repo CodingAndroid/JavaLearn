@@ -38,15 +38,7 @@ public class TicketThread extends Thread{
             //sale();
             lock.lock();//方式 3
             try {
-                if (ticketNum > 0){
-                    System.out.println(Thread.currentThread().getName() + MessageFormat.format("正在出售第{0}张票, 剩余{1}张票", 100-ticketNum+1, ticketNum-1));
-                    ticketNum--;
-                }
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e){
-                    e.printStackTrace();
-                }
+                ticketNumChange();
             } finally {
                 lock.unlock();
             }
@@ -57,6 +49,10 @@ public class TicketThread extends Thread{
      * 方式2. 同步方法
      */
     private synchronized void sale(){
+        ticketNumChange();
+    }
+
+    private void ticketNumChange(){
         if (ticketNum > 0){
             System.out.println(Thread.currentThread().getName() + MessageFormat.format("正在出售第{0}张票, 剩余{1}张票", 100-ticketNum+1, ticketNum-1));
             ticketNum--;

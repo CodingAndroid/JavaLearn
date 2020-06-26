@@ -15,7 +15,7 @@ public class CustomCallable implements Callable<String> {
     @Override
     public String call() throws Exception {
         for (int i = 0; i < 10; i++) {
-            System.out.println("process" + i);
+            System.out.println("实现Callable接口" + i);
         }
         return "finished";
     }

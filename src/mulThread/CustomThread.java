@@ -12,11 +12,11 @@ public class CustomThread extends Thread{
     @Override
     public void run() {
         super.run();
-        System.out.println("线程状态:" + Thread.currentThread().getState());
         try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
+            sleep(3000);
+        } catch (InterruptedException | IllegalArgumentException e){
             e.printStackTrace();
         }
+        System.out.println("继承Thread类" + "," + getName() + "," + currentThread());
     }
 }
