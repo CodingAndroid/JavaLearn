@@ -79,7 +79,15 @@ public class MapTest {
         map.put(stu2, 2);
         map.put(stu3, 3);
         map.put(stu4, 4);
+        map.put(null, null);
+        map.put(null, null);
+        map.put(stu1, null);
         System.out.println("" + map.get(stu));
         System.out.println(map);
+    }
+
+    public static void test2(){
+        HashMap<Integer, String> hashMap = new HashMap<>();
+
     }
 }

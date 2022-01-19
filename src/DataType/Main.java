@@ -28,7 +28,7 @@ public class Main {
          *java会将[-128,127]之间的数进行缓存。Integer i = 127时, 会将127缓存,
          * Integer j = 127时, 就直接从缓存中取, 不会new了, 所以结果为true。
          */
-        System.out.println(i==j); //true
+        System.out.println(i == j); //true
         System.out.println(i == a); //false
         /**
          * Integer b = 128时, 不会将128缓存,

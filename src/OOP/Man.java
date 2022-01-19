@@ -13,6 +13,7 @@ public class Man extends CommonPerson implements Ability{
         super(name, age, personId, address, education);
     }
 
+    //可以不实现
     @Override
     public void eat() {
         super.eat();
@@ -29,10 +30,23 @@ public class Man extends CommonPerson implements Ability{
         System.out.println("挣钱养家");
     }
 
+    @Override
+    public void foo() {
+        System.out.println("default foo");
+    }
+
+    @Override
+    public void study() {
+        System.out.println("学习学习再学习...");
+    }
+
     public static void main(String[] args) {
         Man man = new Man("", 30, "", "", "大学");
         man.eat();
         man.skill();
         man.doWork();
+        man.study();
+        man.foo();
+        Ability.play();
     }
 }
