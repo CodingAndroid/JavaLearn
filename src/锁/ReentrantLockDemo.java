@@ -1,4 +1,4 @@
-package lock;
+package 锁;
 
 /**
  * 作者: lihui1

@@ -1,4 +1,4 @@
-package lock.atomic;
+package 锁.atomic;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

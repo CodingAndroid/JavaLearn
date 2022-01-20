@@ -1,6 +1,6 @@
-package Generic;
+package 泛型;
 
-import Generic.model.*;
+import 泛型.model.*;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

@@ -1,4 +1,4 @@
-package Generic.model;
+package 泛型.model;
 
 /**
  * 作者: lihui1

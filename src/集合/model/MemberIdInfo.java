@@ -1,4 +1,4 @@
-package collection.model;
+package 集合.model;
 
 public class MemberIdInfo {
 

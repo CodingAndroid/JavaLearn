@@ -1,6 +1,6 @@
-package collection;
+package 集合;
 
-import collection.model.Student;
+import 集合.model.Student;
 
 import java.util.*;
 

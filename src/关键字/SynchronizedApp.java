@@ -20,7 +20,7 @@ package 关键字;
  */
 public class SynchronizedApp {
 
-    final String lock = "lock";
+    final String lock = "锁";
 
     final Object object = new Object();//用final修饰object, 避免它在同步块中被重新赋值。
 

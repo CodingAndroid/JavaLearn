@@ -1,4 +1,4 @@
-package Generic.model;
+package 泛型.model;
 
 public class Point<T> implements Action<T>{
 
